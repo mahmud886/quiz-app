@@ -23,9 +23,11 @@
                     <ul class="widget widget-menu unstyled">
                         <li><a href="{{route('user.create')}}"><i class="menu-icon icon-bullhorn"></i>Create User </a></li>
                         <li><a href="{{route('user.index')}}"><i class="menu-icon icon-inbox"></i>View User </a></li>
-                        {{-- <li><a href="form.html"><i class="menu-icon icon-paste"></i>Forms </a></li>
-                        <li><a href="table.html"><i class="menu-icon icon-table"></i>Tables </a></li>
-                        <li><a href="charts.html"><i class="menu-icon icon-bar-chart"></i>Charts </a></li> --}}
+                    </ul>
+
+                    <ul class="widget widget-menu unstyled">
+                        <li><a href="{{route('exam.assign')}}"><i class="menu-icon icon-bullhorn"></i>Exam Assign </a></li>
+                        <li><a href="{{route('user.index')}}"><i class="menu-icon icon-inbox"></i>View User Exam </a></li>
                     </ul>
 
 
@@ -42,7 +44,21 @@
                                 <li><a href="other-user-listing.html"><i class="icon-inbox"></i>All Users </a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                        <ul class="widget widget-menu unstyled">
+
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                   <i class="icon-inbox"></i> {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
+                            </li>
+                        </ul>
                     </ul>
                 </div>
 
