@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\QuestionController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +24,11 @@ Route::get('/', function () {
     return view('admin.index');
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('quiz', QuizController::class);
+Route::resource('question', QuestionController::class);
+Route::get('/quiz/{id}/questions',[QuizController::class,'question'])->name('quiz.question');

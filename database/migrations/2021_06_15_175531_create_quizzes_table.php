@@ -18,7 +18,7 @@ class CreateQuizzesTable extends Migration
 
             $table->string('name');
             $table->text('description');
-            $table->integer('minute');
+            // $table->integer('minute');
 
             $table->timestamps();
         });
